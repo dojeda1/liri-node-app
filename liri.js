@@ -9,7 +9,8 @@ console.log(spotify.id);
 console.log(spotify.secret);
 
 var command = process.argv[2];
-console.log(command);
+var term = process.argv.slice(3).join(" ");
+console.log(term);
 
 switch (command) {
     case "concert-this":
@@ -34,7 +35,7 @@ function spotifyThis() {
     spotify
         .search({
             type: 'track',
-            query: 'working on the chain gang',
+            query: term,
             limit: 1
         })
         .then(function (response) {
