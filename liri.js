@@ -4,35 +4,47 @@ var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var request = require('request');
 var moment = require('moment');
+var fs = require('fs');
 
 var spotify = new Spotify(keys.spotify);
 
 // console.log(spotify.id);
 // console.log(spotify.secret);
 
+// grabs input from terminal
 var command = process.argv[2];
 var term = process.argv.slice(3).join(" ");
 console.log(term);
 
-switch (command) {
-    case "concert-this":
-        concertThis();
-        break;
+// decides which funtion to do based on input
+function check() {
+    switch (command) {
+        case "concert-this":
+            concertThis();
+            logCommand();
+            break;
 
-    case "spotify-this-song":
-        spotifyThis();
-        break;
+        case "spotify-this-song":
+            spotifyThis();
+            logCommand();
+            break;
 
-    case "movie-this":
-        movieThis();
-        break;
+        case "movie-this":
+            movieThis();
+            logCommand();
+            break;
 
-    case "do-what-it-says":
-        console.log("4");
-        break;
+        case "do-what-it-says":
+            doWhatItSays();
+            logCommand();
+            break;
 
-};
+    };
+}
 
+check();
+
+// gives info based on song title
 function spotifyThis() {
     if (term === "") {
         term = "The Sign"
@@ -61,6 +73,7 @@ function spotifyThis() {
 
 }
 
+// gives concert info based on singer or band name
 function concertThis() {
     console.log("------\n")
     var apiKey = ""
@@ -83,6 +96,7 @@ function concertThis() {
     });
 }
 
+// gives info based on movie title
 function movieThis() {
     if (term === "") {
         term = "Mr. Nobody"
@@ -112,4 +126,31 @@ function movieThis() {
         console.log("\n------")
         // }
     });
-}
+};
+
+// reads random.txt file and performs a function based on it
+
+function doWhatItSays() {
+    fs.readFile('random.txt', 'utf8', function (err, data) {
+
+        if (err) {
+            return console.log(err);
+        }
+
+        var dataArr = data.split(',');
+        command = dataArr[0];
+        term = dataArr[1];
+        check();
+
+        console.log(dataArr)
+
+
+    });
+};
+
+function logCommand() {
+    fs.appendFile("log.txt", "\n\n" + command + ", " + term, function (err) {
+        if (err) throw err;
+        console.log('Logged\n');
+    });
+};
