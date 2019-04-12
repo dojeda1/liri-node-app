@@ -24,7 +24,7 @@ switch (command) {
         break;
 
     case "movie-this":
-        console.log("3");
+        movieThis();
         break;
 
     case "do-what-it-says":
@@ -34,6 +34,10 @@ switch (command) {
 };
 
 function spotifyThis() {
+    if (term === "") {
+        term = "The Sign"
+    }
+
     console.log("------\n")
     spotify
         .search({
@@ -76,5 +80,36 @@ function concertThis() {
 
             console.log("\n------")
         }
+    });
+}
+
+function movieThis() {
+    if (term === "") {
+        term = "Mr. Nobody"
+    }
+
+    console.log("------\n")
+    var apiKey = ""
+    var queryUrl = "http://www.omdbapi.com/?t=" + term + "&apikey=" + apiKey;
+
+    request(queryUrl, {
+        json: true
+    }, (err, response, body) => {
+        if (err) {
+            return console.log(err);
+        }
+        // for (var i = 0; i < response.body.length; i++) {
+        console.log("Title: " + response.body.Title);
+        console.log("Released: " + response.body.Released);
+        console.log(response.body.Ratings[0].Source + " Score: " + response.body.Ratings[0].Value);
+        console.log(response.body.Ratings[1].Source + " Score: " + response.body.Ratings[0].Value);
+        console.log("Country: " + response.body.Country);
+        console.log("Languages: " + response.body.Language);
+        console.log("Plot: " + response.body.Plot);
+        console.log("Actors: " + response.body.Actors);
+
+
+        console.log("\n------")
+        // }
     });
 }
