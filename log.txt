@@ -11,3 +11,9 @@ movie-this, batman
 concert-this, kiss
 
 concert-this, lady gaga
+
+concert-this, Batman
+
+movie-this, batman
+
+concert-this, kiss

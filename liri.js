@@ -76,7 +76,7 @@ function spotifyThis() {
 // gives concert info based on singer or band name
 function concertThis() {
     console.log("------\n")
-    var apiKey = ""
+    var apiKey = keys.bands.id
     var queryUrl = "https://rest.bandsintown.com/artists/" + term + "/events?app_id=" + apiKey;
 
     request(queryUrl, {
@@ -103,7 +103,7 @@ function movieThis() {
     }
 
     console.log("------\n")
-    var apiKey = ""
+    var apiKey = keys.omdb.id
     var queryUrl = "http://www.omdbapi.com/?t=" + term + "&apikey=" + apiKey;
 
     request(queryUrl, {
