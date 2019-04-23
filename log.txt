@@ -1,19 +1,15 @@
 
 
+movie-this, v for vendetta
+
+concert-this, lady gaga
+
 spotify-this-song, radioactive
 
 do-what-it-says, 
 
 spotify-this-song, "I Want it That Way"
 
-movie-this, batman
+do-what-it-says, 
 
-concert-this, kiss
-
-concert-this, lady gaga
-
-concert-this, Batman
-
-movie-this, batman
-
-concert-this, kiss
+spotify-this-song, "hit me baby one more time"
