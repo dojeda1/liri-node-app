@@ -13,3 +13,19 @@ spotify-this-song, "I Want it That Way"
 do-what-it-says, 
 
 spotify-this-song, "hit me baby one more time"
+
+movie-this, jiu jitsu
+
+movie-this, batman
+
+movie-this, batman begins
+
+movie-this, jiu jitsu
+
+movie-this, matrix
+
+movie-this, matrix
+
+movie-this, batman
+
+spotify-this-song, radioactive
