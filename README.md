@@ -1,5 +1,15 @@
-# liri-node-app
+# LIRI Node App
 
-This LIRI app can search movies, songs, or concerts Using node's inquirer and user input.
+### About this Project
 
-![Video Demo](https://www.youtube.com/watch?v=AEq8xHEfPlw&t=10s)
+Using node's inquirer and user input, LIRI app can search movies, songs, or concert and display results in the console.
+
+  **View Video Demo [Here!](https://www.youtube.com/watch?v=AEq8xHEfPlw&t=10s)**
+
+### Technologies used
+
+* Javascript
+* Node.js
+* Bands-in-town API
+* OMDB API
+* Spotify API
